@@ -9,7 +9,7 @@ Param(
     [switch] $UploadArtifacts,
     [string] $StorageAccountName,
     [string] $StorageContainerName = $ResourceGroupName.ToLowerInvariant() + '-stageartifacts',
-    [string] $TemplateFile = $ArtifactStagingDirectory + '\mainTemplate.json',
+    [string] $TemplateFile = $ArtifactStagingDirectory + '\azuredeploy.json',
     [string] $TemplateParametersFile = $ArtifactStagingDirectory + '\azuredeploy.parameters.json',
     [string] $DSCSourceFolder = $ArtifactStagingDirectory + '\DSC',
     [switch] $BuildDscPackage,
@@ -37,11 +37,6 @@ function Format-ValidationOutput {
 $OptionalParameters = New-Object -TypeName Hashtable
 $TemplateArgs = New-Object -TypeName Hashtable
 $ArtifactStagingDirectory = ($ArtifactStagingDirectory.TrimEnd('/')).TrimEnd('\')
-
-# if the template file isn't found, try the another default
-if (!(Test-Path $TemplateFile)) { 
-    $TemplateFile = $ArtifactStagingDirectory + '\azuredeploy.json'
-}
 
 Write-Host "Using template file:  $TemplateFile"
 
