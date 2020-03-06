@@ -17,7 +17,8 @@
             "type": "String"
         },
         "azureSearchSku": {
-            "type": "String"
+            "type": "String",
+            "defaultValue": "free"
         },
         "searchHostingMode": {
             "type": "String",
@@ -49,8 +50,7 @@
             "properties": {
                 "apiProperties": {
                     "qnaRuntimeEndpoint": "[concat('https://',reference(resourceId('Microsoft.Web/sites', parameters('webAppName'))).hostNames[0])]"
-                },
-                "customSubDomainName": "Test-QandA-KB"
+                }
             }
         },
         {

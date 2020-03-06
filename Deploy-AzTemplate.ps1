@@ -10,8 +10,8 @@ Param(
     [string] $StorageAccountName,
     [string] $StorageContainerName = $ResourceGroupName.ToLowerInvariant() + '-stageartifacts',
     [string] $TemplateFile = $ArtifactStagingDirectory + '\mainTemplate.json',
-    [string] $TemplateParametersFile = $ArtifactStagingDirectory + '.\azuredeploy.parameters.json',
-    [string] $DSCSourceFolder = $ArtifactStagingDirectory + '.\DSC',
+    [string] $TemplateParametersFile = $ArtifactStagingDirectory + '\azuredeploy.parameters.json',
+    [string] $DSCSourceFolder = $ArtifactStagingDirectory + '\DSC',
     [switch] $BuildDscPackage,
     [switch] $ValidateOnly,
     [string] $DebugOptions = "None",
@@ -190,6 +190,7 @@ if ($ValidateOnly) {
     }
     if ($ErrorMessages) {
         Write-Output '', 'Validation returned the following errors:', @($ErrorMessages), '', 'Template is invalid.'
+        Write-Error -Message 'Template is invalid.'
     }
     else {
         Write-Output '', 'Template is valid.'
