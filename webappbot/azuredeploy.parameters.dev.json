@@ -11,9 +11,6 @@
         "appId": {
             "value": "ef5652c7-0bbb-4065-9f93-157f3ef58c06"
         },
-        "serverFarmId": {
-            "value": "/subscriptions/86a8cacb-30d6-457d-bc98-ef3dc3e4cb9e/resourceGroups/DEV-QandA-Bot-RG/providers/Microsoft.Web/serverFarms/DEV-QandA-KB"
-        },
         "createServerFarm": {
             "value": false
         },
